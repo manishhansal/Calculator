@@ -56,6 +56,21 @@ class Calculator extends React.Component {
         break;
       }
 
+      case "sqrt": {
+        let str = +this.state.question;
+        let square = Math.sqrt(str);
+        // console.log(square)
+        this.setState({ question: "", answer: square });
+        break;
+      }
+
+      case "log": {
+        let str = +this.state.question;
+        let log = Math.log(str);
+        this.setState({ question: "", answer: log });
+        break;
+      }
+
       default: {
         // for every other command, update the answer in the state
         this.setState({ question: (this.state.question += value) });
@@ -97,6 +112,8 @@ class Calculator extends React.Component {
           <div className="button-row">
             <Button label={"0"} handleClick={this.handleClick} />
             <Button label={"="} handleClick={this.handleClick} />
+            <Button label={"sqrt"} handleClick={this.handleClick} />
+            <Button label={"log"} handleClick={this.handleClick} />
           </div>
         </div>
       </div>
